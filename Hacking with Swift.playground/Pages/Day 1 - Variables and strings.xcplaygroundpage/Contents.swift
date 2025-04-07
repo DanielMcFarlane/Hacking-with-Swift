@@ -42,3 +42,4 @@ print(quote.hasPrefix("The"))
 
 // Find if a string ends with selected words
 print(quote.hasSuffix("tomorrow."))
+
