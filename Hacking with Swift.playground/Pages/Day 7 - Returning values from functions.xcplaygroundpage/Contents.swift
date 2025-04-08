@@ -4,7 +4,7 @@ let root = sqrt(169)
 print(root)
 
 
-// Returning a value. -> idicates the return type
+// Returning a single value. -> idicates the return type
 func rollDice() -> Int {
     return Int.random(in: 1...6)
 }
