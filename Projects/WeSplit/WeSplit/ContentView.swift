@@ -11,9 +11,10 @@ struct ContentView: View {
     @State private var checkAmount = 0.0
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 20
-
-    let tipPercentages = [10, 15, 20, 25, 0]
+    @FocusState private var amountIsFocused: Bool
     
+    let tipPercentages = [10, 15, 20, 25, 0]
+
     var currencyCode: String {
         Locale.current.currency?.identifier ?? "USD"
     }
@@ -35,13 +36,19 @@ struct ContentView: View {
                 Section("Input") {
                     TextField("Amount", value: $checkAmount, format: .currency(code: currencyCode))
                         .keyboardType(.decimalPad)
+                        .focused($amountIsFocused)
+                        .onTapGesture {
+                            amountIsFocused = true
+                        }
+                }
 
+                Section("Number of People") {
                     Picker("Number of people", selection: $numberOfPeople) {
                         ForEach(2 ..< 100) {
                             Text("\($0) people")
                         }
                     }
-                    .pickerStyle(.navigationLink) // Creates an overlay instead of drop-down
+                    .pickerStyle(.navigationLink)
                 }
 
                 Section("How much tip do you want to leave?") {
@@ -50,7 +57,7 @@ struct ContentView: View {
                             Text($0, format: .percent)
                         }
                     }
-                    .pickerStyle(.segmented) // Adds a segmented picker instead of drop-down
+                    .pickerStyle(.segmented)
                 }
 
                 Section("Output") {
@@ -58,6 +65,13 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("WeSplit")
+            .toolbar {
+                if amountIsFocused {
+                    Button("Done") {
+                        amountIsFocused = false
+                    }
+                }
+            }
         }
     }
 }
