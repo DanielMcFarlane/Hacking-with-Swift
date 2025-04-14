@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    // @State allows us to work around the limitation of structs e.g. mutating func
-   // always use private!!
-    @State private var tapCount = 0
+    // Use @State to read and write value with $
+    // Two way binding
+    @State private var name = ""
 
     var body: some View {
-        // Button
-        Button("Tap Count: \(tapCount)") {
-            self.tapCount += 1
+        Form {
+            TextField("Enter your name", text: $name) // $ signifies read and write
+            Text("Your name is \(name)")
         }
     }
 }
@@ -90,6 +90,19 @@ struct ContentView: View {
                  .navigationTitle("SwiftUI") // Adds nav title at top
                  .navigationBarTitleDisplayMode(.inline)
              }
+         }
+     }
+ }
+ 
+ struct ContentView: View {
+     // @State allows us to work around the limitation of structs e.g. mutating func
+    // always use private!!
+     @State private var tapCount = 0
+
+     var body: some View {
+         // Button
+         Button("Tap Count: \(tapCount)") {
+             self.tapCount += 1
          }
      }
  }
