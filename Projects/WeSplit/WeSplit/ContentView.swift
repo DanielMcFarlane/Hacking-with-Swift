@@ -8,32 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    // @State allows us to work around the limitation of structs e.g. mutating func
+   // always use private!!
+    @State private var tapCount = 0
+
     var body: some View {
-        NavigationStack {
-            Form {
-                Section {
-                    Text("Hello, world!")
-                    
-                }
-                
-                Section {
-                    Text("Hello, world!")
-                    Text("Hello, world!")
-                    Text("Hello, world!")
-                    
-                }
-                
-                Section {
-                    Text("Hello, world!")
-                    Text("Hello, world!")
-                    Text("Hello, world!")
-                    Text("Hello, world!")
-                    Text("Hello, world!")
-                    
-                }
-                .navigationTitle("SwiftUI") // Adds nav title at top
-                .navigationBarTitleDisplayMode(.inline)
-            }
+        // Button
+        Button("Tap Count: \(tapCount)") {
+            self.tapCount += 1
         }
     }
 }
@@ -81,5 +63,35 @@ struct ContentView: View {
      }
  }
  
- 
+ struct ContentView: View {
+     var body: some View {
+         NavigationStack {
+             Form {
+                 Section {
+                     Text("Hello, world!")
+                     
+                 }
+                 
+                 Section {
+                     Text("Hello, world!")
+                     Text("Hello, world!")
+                     Text("Hello, world!")
+                     
+                 }
+                 
+                 Section {
+                     Text("Hello, world!")
+                     Text("Hello, world!")
+                     Text("Hello, world!")
+                     Text("Hello, world!")
+                     Text("Hello, world!")
+                     
+                 }
+                 .navigationTitle("SwiftUI") // Adds nav title at top
+                 .navigationBarTitleDisplayMode(.inline)
+             }
+         }
+     }
+ }
+
  */
