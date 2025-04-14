@@ -9,17 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Form {
-            // Section divides it up
-            Section {
-                Text("Hello, world!")
-                Text("Hello, world!")
-            }
-            
-            Section {
-                Text("Hello, world!")
-                Text("Hello, world!")
-                Text("Hello, world!")
+        NavigationStack {
+            Form {
+                Section {
+                    Text("Hello, world!")
+                    
+                }
+                
+                Section {
+                    Text("Hello, world!")
+                    Text("Hello, world!")
+                    Text("Hello, world!")
+                    
+                }
+                
+                Section {
+                    Text("Hello, world!")
+                    Text("Hello, world!")
+                    Text("Hello, world!")
+                    Text("Hello, world!")
+                    Text("Hello, world!")
+                    
+                }
+                .navigationTitle("SwiftUI") // Adds nav title at top
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }
@@ -47,6 +60,24 @@ struct ContentView: View {
          }
          // View modifier, have it at the end to return the changes above
          .padding()
+     }
+ }
+ 
+ struct ContentView: View {
+     var body: some View {
+         Form {
+             // Section divides it up
+             Section {
+                 Text("Hello, world!")
+                 Text("Hello, world!")
+             }
+             
+             Section {
+                 Text("Hello, world!")
+                 Text("Hello, world!")
+                 Text("Hello, world!")
+             }
+         }
      }
  }
  
