@@ -15,23 +15,33 @@ struct ContentView: View {
     let tipPercentages = [10, 15, 20, 25, 0]
     
     var body: some View {
-        Form {
-            Section {
-                Text("Input")
+        NavigationStack {
+            Form {
+                Section {
+                    Text("Input")
+                    Section {
+                        TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                            .keyboardType(.decimalPad)
+                        
+                        Picker("Number of people", selection: $numberOfPeople) {
+                            ForEach(2 ..< 100) {
+                                Text("\($0) people")
+                            }
+                        }
+                        .pickerStyle(.navigationLink) // Creates an overlay vs drop down
+                    }
+                }
                 
-                TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                    .keyboardType(.decimalPad)
+                Section {
+                    Text("Output")
+                    Text(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "GBP"))
+                }
             }
-            
-            Section {
-                Text("Output")
-                Text(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "GBP"))
-            }
+            .navigationTitle("WeSplit")
         }
     }
 }
 
-// Use this to show the preview on the right
 #Preview {
     ContentView()
 }
