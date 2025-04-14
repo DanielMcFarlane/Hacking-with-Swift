@@ -8,17 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
-    // Use @State to read and write value with $
-    // Two way binding
-    @State private var name = ""
+    let students = ["Harry", "Hermione", "Ron"]
+    @State private var selectedStudent = "Harry" // Defualt displayed
 
     var body: some View {
-        Form {
-            TextField("Enter your name", text: $name) // $ signifies read and write
-            Text("Your name is \(name)")
+        NavigationStack {
+            Form {
+                Picker("Select your student", selection: $selectedStudent) {
+                    ForEach(students, id: \.self) {
+                        // \.self means “the strings themselves are unique.”
+                        Text($0)
+                    }
+                }
+            }
+            
+            Form {
+                ForEach(0..<100) { number in
+                    Text("Row \(number)")
+                }
+            }
         }
     }
 }
+
 
 // Use this to show the preview on the right
 #Preview {
@@ -107,4 +119,17 @@ struct ContentView: View {
      }
  }
 
+ struct ContentView: View {
+     // Use @State to read and write value with $
+     // Two way binding
+     @State private var name = ""
+
+     var body: some View {
+         Form {
+             TextField("Enter your name", text: $name) // $ signifies read and write
+             Text("Your name is \(name)")
+         }
+     }
+ }
+ 
  */
