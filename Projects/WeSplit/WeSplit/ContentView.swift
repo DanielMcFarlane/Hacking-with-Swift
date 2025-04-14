@@ -8,128 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
-    let students = ["Harry", "Hermione", "Ron"]
-    @State private var selectedStudent = "Harry" // Defualt displayed
-
+    @State private var checkAmount = 0.0
+    @State private var numberOfPeople = 2
+    @State private var tipPercentage = 20
+    
+    let tipPercentages = [10, 15, 20, 25, 0]
+    
     var body: some View {
-        NavigationStack {
-            Form {
-                Picker("Select your student", selection: $selectedStudent) {
-                    ForEach(students, id: \.self) {
-                        // \.self means “the strings themselves are unique.”
-                        Text($0)
-                    }
-                }
+        Form {
+            Section {
+                Text("Input")
+                
+                TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    .keyboardType(.decimalPad)
             }
             
-            Form {
-                ForEach(0..<100) { number in
-                    Text("Row \(number)")
-                }
+            Section {
+                Text("Output")
+                Text(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "GBP"))
             }
         }
     }
 }
 
-
 // Use this to show the preview on the right
 #Preview {
     ContentView()
 }
-
-
-// Comments
-/*
- // We're making a content view and it's of object type view
- struct ContentView: View {
-     // some means some kind of data that conforms to a view layout
-     var body: some View {
-         VStack {
-             // globe image from apples sf symbols collection
-             Image(systemName: "globe")
-                 .imageScale(.large)
-                 .foregroundStyle(.tint)
-             // How to show uneditable text on screen
-             Text("Hello, world!")
-         }
-         // View modifier, have it at the end to return the changes above
-         .padding()
-     }
- }
- 
- struct ContentView: View {
-     var body: some View {
-         Form {
-             // Section divides it up
-             Section {
-                 Text("Hello, world!")
-                 Text("Hello, world!")
-             }
-             
-             Section {
-                 Text("Hello, world!")
-                 Text("Hello, world!")
-                 Text("Hello, world!")
-             }
-         }
-     }
- }
- 
- struct ContentView: View {
-     var body: some View {
-         NavigationStack {
-             Form {
-                 Section {
-                     Text("Hello, world!")
-                     
-                 }
-                 
-                 Section {
-                     Text("Hello, world!")
-                     Text("Hello, world!")
-                     Text("Hello, world!")
-                     
-                 }
-                 
-                 Section {
-                     Text("Hello, world!")
-                     Text("Hello, world!")
-                     Text("Hello, world!")
-                     Text("Hello, world!")
-                     Text("Hello, world!")
-                     
-                 }
-                 .navigationTitle("SwiftUI") // Adds nav title at top
-                 .navigationBarTitleDisplayMode(.inline)
-             }
-         }
-     }
- }
- 
- struct ContentView: View {
-     // @State allows us to work around the limitation of structs e.g. mutating func
-    // always use private!!
-     @State private var tapCount = 0
-
-     var body: some View {
-         // Button
-         Button("Tap Count: \(tapCount)") {
-             self.tapCount += 1
-         }
-     }
- }
-
- struct ContentView: View {
-     // Use @State to read and write value with $
-     // Two way binding
-     @State private var name = ""
-
-     var body: some View {
-         Form {
-             TextField("Enter your name", text: $name) // $ signifies read and write
-             Text("Your name is \(name)")
-         }
-     }
- }
- 
- */
