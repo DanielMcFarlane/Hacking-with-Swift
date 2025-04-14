@@ -17,8 +17,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section {
-                    Text("Input")
+                Section ("Input") {
                     Section {
                         TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                             .keyboardType(.decimalPad)
@@ -32,8 +31,16 @@ struct ContentView: View {
                     }
                 }
                 
-                Section {
-                    Text("Output")
+                Section("How much tip do you want to leave?") {
+                    Picker("Tip percentage", selection: $tipPercentage) {
+                        ForEach(tipPercentages, id: \.self) {
+                            Text($0, format: .percent)
+                        }
+                    }
+                    .pickerStyle(.segmented)  // Add a segmented picker isntead of drop down
+                }
+                
+                Section ("Output"){
                     Text(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "GBP"))
                 }
             }
