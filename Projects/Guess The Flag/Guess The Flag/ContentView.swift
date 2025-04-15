@@ -8,63 +8,42 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingAlert = false
+
     var body: some View {
-        VStack {
-            Button("Button 1") { }
-                .buttonStyle(.bordered)
-            Button("Button 2", role: .destructive) { }
-                .buttonStyle(.bordered)
-            Button("Button 3") { }
-                .buttonStyle(.borderedProminent)
-                .tint(.purple)
-            Button("Button 4", role: .destructive) { }
-                .buttonStyle(.borderedProminent)
-            
-            
-            Button {
-                print("Edit button was tapped")
-            } label: {
-                Image(systemName: "pencil")
-            }
-            
-            Button {
-                print("Button was tapped")
-            } label: {
-                Text("Tap me!")
-                    .padding()
-                    .foregroundStyle(.white)
-                    .background(.red)
-            }
-            
-            Button("Edit", systemImage: "pencil") {
-                print("Edit button was tapped")
-            }
-            
-            
-            Button {
-                print("Edit button was tapped")
-            } label: {
-                Label("Edit", systemImage: "pencil")
-                    .padding()
-                    .foregroundStyle(.white)
-                    .background(.red)
-            }
-            
-            Button {
-                print("Custom image button tapped")
-            } label: {
-                Image("UK")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 40, height: 40)
-                    .padding()
-                    .background(.red)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-            }
+        Button("Show Alert") {
+            showingAlert = true
         }
+        .alert("Important message", isPresented: $showingAlert) {
+            Button("OK") { }
+        }
+
     }
 }
 
 #Preview {
     ContentView()
 }
+
+
+
+//// Read this and confirm
+//Button("Show Alert") {
+//    showingAlert = true
+//}
+//.alert("Important message", isPresented: $showingAlert) {
+//    Button("OK", role: .cancel) { }
+//} message: {
+//    Text("Please read this.")
+//}
+//
+//// Confirm or cancel
+//.alert("Important message", isPresented: $showingAlert) {
+//    Button("Delete", role: .destructive) { }
+//    Button("Cancel", role: .cancel) { }
+//}
+//
+//// Alert
+//.alert("Important message", isPresented: $showingAlert) {
+//    Button("OK") { }
+//}
