@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var score = 0
+    @State private var attemptsRemaining = 3
     @State private var showingScore = false
     @State private var scoreTitle = ""
 
@@ -31,8 +32,8 @@ struct ContentView: View {
                 Spacer()
                 
                 Text("Guess the Flag")
-                     .font(.largeTitle.weight(.bold))
-                     .foregroundStyle(.white)
+                    .font(.largeTitle.weight(.bold))
+                    .foregroundStyle(.white)
                 
                 VStack(spacing: 30) {
                     VStack {
@@ -64,21 +65,30 @@ struct ContentView: View {
                 
                 Spacer()
                 Spacer()
-
+                
                 Text("Score: \(score)")
                     .foregroundStyle(.white)
                     .font(.title.bold())
                     .foregroundStyle(.secondary)
                 
+                Text("Attempts remaining: \(attemptsRemaining)")
+                    .foregroundStyle(.white)
+                    .font(.subheadline.weight(.heavy))
+                    .foregroundStyle(.secondary)
+                
                 Spacer()
-
             }
             .padding()
         }
+        
         .alert(scoreTitle, isPresented: $showingScore) {
-            Button("Continue", action: askQuestion)
+            Button(attemptsRemaining > 0 ? "Continue" : "Try Again", action: askQuestion)
         } message: {
-            Text("Your score is \(score)")
+            if attemptsRemaining > 0 {
+                Text("\nYou have \(attemptsRemaining) attempts remaining")
+            } else {
+                Text("\nYour final score was \(score)")
+            }
         }
     }
 
@@ -86,14 +96,20 @@ struct ContentView: View {
         if number == correctAnswer {
             scoreTitle = "Correct"
             score += 1
+            askQuestion()
         } else {
-            scoreTitle = "Wrong"
+            attemptsRemaining -= 1
+            scoreTitle = attemptsRemaining == 0 ? "Game Over" : "Wrong"
+            showingScore = true
         }
-
-        showingScore = true
     }
 
     func askQuestion() {
+        if attemptsRemaining == 0 {
+            score = 0
+            attemptsRemaining = 3
+        }
+
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
     }
