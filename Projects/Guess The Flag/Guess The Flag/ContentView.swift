@@ -8,56 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View { // Useful for adding watermarks etc...
-        ZStack (alignment: .top) {
-            Text("Hello, world!")
-            Text("This is inside a stack")
+    var body: some View {
+        ZStack {
+            VStack(spacing: 0) {
+                Color.red
+                Color.blue
+            }
+
+            Text("Your content")
+                .foregroundStyle(.secondary)
+                .padding(50)
+                .background(.ultraThinMaterial) // Might be good for graded unit
         }
+        .ignoresSafeArea()
     }
 }
 
 #Preview {
     ContentView()
 }
-
-
-//struct ContentView: View {
-//    var body: some View {
-//        VStack(spacing: 20) {
-//            Text("Hello, world!")
-//            Text("This is inside a stack")
-//        }
-//        
-//        VStack(alignment: .leading) {
-//            Text("Hello, world!")
-//            Text("This is inside a stack")
-//        }
-//        
-//        HStack(spacing: 20) {
-//            Text("Hello, world!")
-//            Text("This is inside a stack")
-//        }
-//        
-//        VStack {
-//            Text("First")
-//            Text("Second")
-//            Text("Third")
-//            Spacer()
-//        }
-//        
-//        VStack {
-//            Spacer()
-//            Text("First")
-//            Text("Second")
-//            Text("Third")
-//            Spacer()
-//            Spacer()
-//        }
-//        
-//        ZStack {
-//            Text("Hello, world!")
-//            Text("This is inside a stack")
-//        }
-//    }
-//}
-//

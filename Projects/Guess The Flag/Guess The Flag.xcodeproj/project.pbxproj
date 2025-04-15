@@ -11,9 +11,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		659A68702DAE763500069038 /* Guess The Flag */ = {
+		659A68702DAE763500069038 /* Guess the Flag */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Guess The Flag";
+			path = "Guess the Flag";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		659A68652DAE763500069038 = {
 			isa = PBXGroup;
 			children = (
-				659A68702DAE763500069038 /* Guess The Flag */,
+				659A68702DAE763500069038 /* Guess the Flag */,
 				659A686F2DAE763500069038 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				659A68702DAE763500069038 /* Guess The Flag */,
+				659A68702DAE763500069038 /* Guess the Flag */,
 			);
 			name = "Guess The Flag";
 			packageProductDependencies = (
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 659A68692DAE763500069038 /* Build configuration list for PBXProject "Guess The Flag" */;
+			buildConfigurationList = 659A68692DAE763500069038 /* Build configuration list for PBXProject "Guess the Flag" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -251,6 +251,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3P2U4SBLR3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -263,7 +264,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "me.mcfarlane.daniel.Guess-The-Flag";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mcfarlane.daniel.Guess-the-Flag";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -278,6 +279,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3P2U4SBLR3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -290,7 +292,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "me.mcfarlane.daniel.Guess-The-Flag";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mcfarlane.daniel.Guess-the-Flag";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -301,7 +303,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		659A68692DAE763500069038 /* Build configuration list for PBXProject "Guess The Flag" */ = {
+		659A68692DAE763500069038 /* Build configuration list for PBXProject "Guess the Flag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				659A68772DAE763600069038 /* Debug */,
