@@ -9,31 +9,62 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Your content")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .foregroundStyle(.white)
-            .background(.indigo
-                .gradient)
+        VStack {
+            Button("Button 1") { }
+                .buttonStyle(.bordered)
+            Button("Button 2", role: .destructive) { }
+                .buttonStyle(.bordered)
+            Button("Button 3") { }
+                .buttonStyle(.borderedProminent)
+                .tint(.purple)
+            Button("Button 4", role: .destructive) { }
+                .buttonStyle(.borderedProminent)
+            
+            
+            Button {
+                print("Edit button was tapped")
+            } label: {
+                Image(systemName: "pencil")
+            }
+            
+            Button {
+                print("Button was tapped")
+            } label: {
+                Text("Tap me!")
+                    .padding()
+                    .foregroundStyle(.white)
+                    .background(.red)
+            }
+            
+            Button("Edit", systemImage: "pencil") {
+                print("Edit button was tapped")
+            }
+            
+            
+            Button {
+                print("Edit button was tapped")
+            } label: {
+                Label("Edit", systemImage: "pencil")
+                    .padding()
+                    .foregroundStyle(.white)
+                    .background(.red)
+            }
+            
+            Button {
+                print("Custom image button tapped")
+            } label: {
+                Image("UK")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 40, height: 40)
+                    .padding()
+                    .background(.red)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
+        }
     }
 }
 
 #Preview {
     ContentView()
 }
-
-
-//LinearGradient(colors: [.white, .black], startPoint: .top, endPoint: .bottom)
-//
-//LinearGradient(stops: [
-//    Gradient.Stop(color: .white, location: 0.45),
-//    Gradient.Stop(color: .black, location: 0.55),
-//], startPoint: .top, endPoint: .bottom)
-//
-//LinearGradient(stops: [
-//    .init(color: .white, location: 0.45),
-//    .init(color: .black, location: 0.55),
-//], startPoint: .top, endPoint: .bottom)
-//
-//RadialGradient(colors: [.blue, .black], center: .center, startRadius: 20, endRadius: 200)
-//
-//AngularGradient(colors: [.red, .yellow, .green, .blue, .purple, .red], center: .center)
